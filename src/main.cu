@@ -10,6 +10,7 @@
 #####                KERNELS                    #####
 ###################################################*/
 
+<<<<<<< HEAD
 __global__ void matMul(float* A, float* B, float* C, 
                             int M, int K, int N) {
 
@@ -25,14 +26,45 @@ __global__ void matMul(float* A, float* B, float* C,
     C[row * N + col] = sum;
     }
 
+=======
+// Function to add the elements of two arrays
+void add(int n, float *x, float *y){
+    // 
+    for (int i = 0; i < n; i++){
+        y[i] = x[i] + y[i];
+    }
+>>>>>>> 31fdb8e (testing adding the element of two arrays on the CPU)
 }
 
 /*##################################################
 #####                MAIN                      #####
 ##################################################*/
 
-int main() {
+int main(void){
+    // Make this 1 millions or 1M elements
+    // N = 00000000 00001000 00000000 00000000
+    int N = 1<<20;
+
+    // Create 
+    float *x = new float[N];
+    float *y = new float[N];
+
+    // Initialize x and y arrays on the host
+    for (int i = 0; i < N; i++) {
+        x[i] = 1.0f;
+        y[i] = 2.0f;
+    }
+
+    // Run kernel on 1M elemnets on the CPU
+    add(N, x, y);
+
+    // Check for errors (all values should be 3.0f)
+    float maxError = 0.0f;
+    for (int i = 0; i < N; i++)
+    maxError = fmax(maxError, fabs(y[i] - 3.0f));
+    std::cout << "Max error: " << maxError << std::endl;
     
+<<<<<<< HEAD
     int M = 3, K = 2, N = 4;
 
     float h_A[M*K] = {
@@ -80,4 +112,13 @@ int main() {
 
     return 0;
     
+=======
+
+    // Free memory
+    delete [] x;
+    delete [] y;
+
+    return 0;
+
+>>>>>>> 31fdb8e (testing adding the element of two arrays on the CPU)
 }
