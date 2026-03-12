@@ -1,70 +1,36 @@
-#include <device_launch_parameters.h>
-#include <cuda_runtime.h>
-#include <iostream>
 #include <stdio.h>
-#include <vector>
-#include <cmath>
+#include <stdlib.h>
+#include <cuda_runtime.h>
 
+#inlcude "nn_train.cuh"
 
 /*###################################################
 #####                KERNELS                    #####
 ###################################################*/
 
-<<<<<<< HEAD
 
-=======
-// Function to add the elements of two arrays
-__global__ void add(int n, float *x, float *y){
-    int index = blockIdx.x * blockDim.x + threadIdx.x;
-    int stride = blockDim.x * gridDim.x;
-    for (int i = index; i < n; i += stride){
-        y[i] = x[i] + y[i];
-    }
-}
->>>>>>> a0e45e8 (adjusting template and removed uncessary files)
 
 /*##################################################
 #####                MAIN                      #####
 ##################################################*/
 
-<<<<<<< HEAD
-=======
-int main(void){
-    // Make this 1 millions or 1M elements
-    // N = 00000000 00001000 00000000 00000000
-    int N = 1<<20;
+int main() {
+    // Training Data
+    const int TRAINING_SIZE = 4;
+    const int TRAINING_DIM = 4;
+    const int L1_SIZE = 8;
+    const int OUTPUT_DIM = 1;
 
-    float *x, *y;
+    float h_X[TRAINING_SIZE * TRAINING_DIM] = {
+        5.1, 3.5, 1.4, 0.2,
+        4.9, 3.0, 1.4, 0.2,
+        6.2, 3.4, 5.4, 2.3,
+        5.9, 3.0, 5.1, 1.8
+    };
 
-    // Allocate Unified Memory - accessible from CPU or GPU
-    cudaMallocManaged(&x, N*sizeof(float));
-    cudaMallocManaged(&y, N*sizeof(float));
+    float h_y[TRAINING_SIZE] = {0, 0, 1, 1};
 
-    // Initialize x and y arrays on the host
-    for (int i = 0; i < N; i++) {
-        x[i] = 1.0f;
-        y[i] = 2.0f;
-    }
-
-    // Run kernel on 1M elemnets on the CPU
-    int blockSize = 256;
-    int numBlocks = (N + blockSize - 1) / blockSize;
-    add<<<numBlocks, blockSize>>>(N, x, y);
-
-    // Wait for GPU to finish before accessing on host
-    cudaDeviceSynchronize();
-
-    // Check for errors (all values should be 3.0f)
-    float maxError = 0.0f;
-    for (int i = 0; i < N; i++)
-        maxError = fmax(maxError, fabs(y[i] - 3.0f));
-    std::cout << "Max error: " << maxError << std::endl;
-
-    // Free memroy
-    cudaFree(x);
-    cudaFree(y);
-
-    return 0;
-
+    // Allocate device memory
+    float *d_X, *d_Y;
+    cudaMalloc(&d_Y, )
 }
->>>>>>> a0e45e8 (adjusting template and removed uncessary files)
