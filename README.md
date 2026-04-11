@@ -58,9 +58,13 @@ Explanation
 6) I loop over k and accumulate A[k][r] * B[k][c], which is the mathemeatical definition of A^T * B.
 7) This gives me the value of C[r][c], which I store in C[i] since the matrix is stored in row major order.
 
+## Sigmoid and Derivative Sigmoid
 
-
-
+Explanation
+1) Each thread start with a global index i
+2) Gride stride loop
+3) For each element, the kernel computes the sigmoid value x or s
+4) The sigmoid or derivative sigmoid is stored in output[i]
 
 
 
