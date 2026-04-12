@@ -1,4 +1,4 @@
-# Neural Networks in CUDA
+# Neural Networks in CUDA (In-Progress)
 *Insert NN architecture*
 
 ## Introducing Nueral Network in CUDA
@@ -24,6 +24,8 @@ The goal of this project is to deeply understand how neural networks work under 
 Key things I learned were
 - CUDA syntax
 - Nueral Network Fundamentals
+- Reading Documentations
+- Interacting with CUDA communites
 
 Roughly around 1-2 months
 
