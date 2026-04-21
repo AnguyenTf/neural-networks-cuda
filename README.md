@@ -19,13 +19,14 @@ The goal of this project is to deeply understand how neural networks work under 
 
 ---
 
-### Project reflection
+### Project reflection/Help
 
 Key things I learned were
 - CUDA syntax
 - Nueral Network Fundamentals
 - Reading Documentations
 - Interacting with CUDA communites
+- CUDA Youtube Resources https://www.youtube.com/watch?v=2NgpYFdsduY&list=PLxNPSjHT5qvtYRVdNN1yDcdSl39uHV_sU
 
 Roughly around 1-2 months
 
