@@ -1,5 +1,4 @@
-# Neural Networks in CUDA (In-Progress)
-*Insert NN architecture*
+# Neural Networks in CUDA
 
 ## Introducing Nueral Network in CUDA
 
