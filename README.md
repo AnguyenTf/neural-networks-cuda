@@ -57,8 +57,6 @@ Explanation
 5) Then I compute the dot product between row r of A and column c of B by looping over k and accumlating A[r][k] * b[k][c].  
 6) That gives me the value of C[r][c], which I store in C[i] since matrix in row-major order.
 
-Example: *insert image*
-
 Backpropagating - Kernel kDot_m1_m2T in dot.su
 
 Explanation
@@ -68,8 +66,6 @@ Explanation
 4) For each index i, I convert it into row and column using r = i / B_rows and c = i % B_Rows.
 5) Then I compute the dot product between row r of A dn row c of B (which corresponds to column c of B^T.
 6) This gives me the value of C[r][c], which I stored in C[i] since the matrix is stored in row-major order.
-
-Example: *insert image*
 
 Weight Gradient - Kernel kDot_m1T_m2 in dot.su
 
@@ -81,8 +77,6 @@ Explanation
 5) Then I compute the dot product betwen row r of A^t and column c of B. Since A is not explicitly transposed, I access A in transposed order using A[k][r], which in row major indexing is A[k * A_cols +r].
 6) I loop over k and accumulate A[k][r] * B[k][c], which is the mathemeatical definition of A^T * B.
 7) This gives me the value of C[r][c], which I store in C[i] since the matrix is stored in row major order.
-
-Example: *insert image*
 
 ---
 
