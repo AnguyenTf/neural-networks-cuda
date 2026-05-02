@@ -41,7 +41,7 @@ The neural network performs the full training loop on the GPU
 4) Backpropagate, uses kDot_m1_m2t to propagate error backward
 5) Activation Derivative, uses kSigmoid_d to compute σ'(x)
 6) Weight gradient (Aᵀ × δ), uses kDot_m1T_m2 to compute gradients
-7) Weight upade, uses KMul, kAdd, and kSub to update weights
+7) Weight update, uses KMul, kAdd, and kSub to update weights
 
 ---
 
